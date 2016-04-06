@@ -1,0 +1,145 @@
+TITLE MASM Template						(main.asm)
+
+
+INCLUDE Irvine32.inc
+
+.data
+
+msg1 BYTE "Enter Marks:",0
+
+msg2 BYTE "Grade F",0
+msg3 BYTE "Grade D",0
+msg4 BYTE "Ggrade C",0
+msg5 BYTE "Grade C+",0
+msg6 BYTE "Grade B",0
+msg7 BYTE "Grade B+",0
+msg8 BYTE "Grade A",0
+msg9 BYTE "Invalid Input",0
+
+num DWORD 0d
+
+.code
+
+main PROC
+
+
+
+
+mov edx, offset msg1
+call writestring
+
+call readdec
+
+mov num, eax
+
+
+cmp num, 100
+ja E1
+jb start
+
+E1:
+mov edx, offset msg9
+call writestring
+exit
+
+cmp num, 0
+jb E2
+
+
+E2:
+mov edx, offset msg9
+call writestring
+exit
+
+
+start:
+cmp num, 50
+jb T1
+ja K1
+
+
+T1:
+mov edx, offset msg2
+call writestring
+call crlf
+exit
+
+K1:
+cmp num, 60
+jb T2
+ja K2
+
+
+T2:
+
+
+
+mov edx, offset msg3
+call writestring
+call crlf
+exit
+
+K2:
+cmp num, 66
+jb T3
+ja K3
+
+
+T3:
+
+
+mov edx, offset msg4
+call writestring
+call crlf
+exit
+
+
+K3:
+cmp num, 72
+jb T4
+ja K4
+
+T4:
+
+mov edx, offset msg5
+call writestring
+call crlf
+exit
+
+K4:
+cmp num, 80
+jb T5
+ja K5
+
+
+T5:
+
+mov edx, offset msg6
+call writestring
+call crlf
+exit
+
+K5:
+cmp num, 87
+jb T6
+ja K6
+
+T6:
+
+mov edx, offset msg7
+call writestring
+call crlf
+exit
+
+K6:
+mov edx, offset msg8
+call writestring
+call crlf
+exit
+
+
+
+	exit
+main ENDP
+
+END main
